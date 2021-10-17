@@ -3,14 +3,15 @@ import Counter from "./components/Counter";
 import Button from "./components/Button";
 import Form from "./components/Form";
 import Test from "./components/Test";
-import axios from "axios";
+import Search from "./components/Search";
 
 const App = () => {
   return (
-    <>
-      <Header text="Click It!!" />
-      <Counter label="This is a Button" />
-    </>
+    <div className="ui grid container center aligned">
+      <div className="column eight wide">
+        <Search />
+      </div>
+    </div>
   );
 };
 
