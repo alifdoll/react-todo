@@ -29,9 +29,9 @@ const App = () => {
   };
 
   return (
-    <div className="ui container center aligned">
+    <div className="container box my-6">
       <Section>
-        <h1>{title}</h1>
+        <h1 className="title has-text-centered is-size-2 mb-5">{title}</h1>
       </Section>
 
       <Section>

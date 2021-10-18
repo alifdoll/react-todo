@@ -31,46 +31,52 @@ const Todo = ({ text, completed, removeTodo }) => {
   };
 
   return (
-    <div className="row ui segment">
+    <div className="box level my-5">
       {isEditing ? (
         <div className="column seven wide">
-          <div className="ui input fluid">
-            <input
-              onKeyDown={handleInputKeyDown}
-              autoFocus={true}
-              onChange={handleInputOnChange}
-              value={tempVal}
-            />
+          <div className="field">
+            <div className="control">
+              <input
+                className="input"
+                onKeyDown={handleInputKeyDown}
+                autoFocus={true}
+                onChange={handleInputOnChange}
+                value={tempVal}
+              />
+            </div>
           </div>
         </div>
       ) : (
         <>
-          <div className="column five wide  ">
+          <div className="level-left">
             <h2
-              className={`ui header ${completedState ? "green" : ""}`}
+              className={`title has-text-weight-bold is-uppercase has-text-${
+                completedState ? "primary" : ""
+              }`}
               onDoubleClick={handleDoubleClick}
             >
               {value}
             </h2>
           </div>
-          <div className="column one wide">
-            <button
-              className={`ui button circular icon ${
-                completedState ? "blue" : "green"
-              }`}
-              onClick={handleCheckButton}
-            >
-              <i className="white check icon"></i>
-            </button>
-          </div>
+          <div className="level-right">
+            <div className="block mx-2 my-2">
+              <button
+                className={`button is-${completedState ? "info" : "primary"}`}
+                onClick={handleCheckButton}
+              >
+                <span className="icon">
+                  <i class="fas fa-plus-circle"></i>
+                </span>
+              </button>
+            </div>
 
-          <div className="column one wide">
-            <button
-              className="ui button circular icon red"
-              onClick={removeTodo}
-            >
-              <i className="white x icon"></i>
-            </button>
+            <div className="block mx-2">
+              <button className="button is-danger" onClick={removeTodo}>
+                <span className="icon">
+                  <i class="fas fa-times-circle"></i>
+                </span>
+              </button>
+            </div>
           </div>
         </>
       )}

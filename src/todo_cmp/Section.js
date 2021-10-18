@@ -1,8 +1,8 @@
 import React from "react";
 import Form from "./Form";
 
-const Section = ({ children }) => {
-  return <div style={{ margin: "50px" }}>{children}</div>;
+const Section = ({ children, className = "" }) => {
+  return <div className={`mx-6 ${className}`}>{children}</div>;
 };
 
 export default Section;

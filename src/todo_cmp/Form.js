@@ -18,20 +18,28 @@ const Form = ({ addTodo }) => {
   };
 
   return (
-    <form className="ui form" onSubmit={handlerFormSubmit}>
-      <div className="ui grid center aligned">
-        <div className="row">
-          <div className="column five wide">
-            <input
-              value={inputValue}
-              onChange={handleInputChange}
-              type="text"
-              placeholder="Enter a text ..."
-            />
-          </div>
-          <div className="column one wide">
-            <button type="submit" className="ui button circular icon green">
-              <i className="plus icon white"></i>
+    <form
+      className="block columns is-centered is-variable is-3"
+      onSubmit={handlerFormSubmit}
+    >
+      <div className="column flex-wrap is-10">
+        <div className="control">
+          <input
+            className="input is-large"
+            value={inputValue}
+            onChange={handleInputChange}
+            type="text"
+            placeholder="Enter a text ..."
+          />
+        </div>
+      </div>
+      <div className="column flex-wrap">
+        <div className="control">
+          <div className="column">
+            <button type="submit" className="button is-primary">
+              <span className="icon">
+                <i class="fas fa-plus-circle"></i>
+              </span>
             </button>
           </div>
         </div>
