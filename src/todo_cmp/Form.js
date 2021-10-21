@@ -34,14 +34,12 @@ const Form = ({ addTodo }) => {
         </div>
       </div>
       <div className="column flex-wrap">
-        <div className="control">
-          <div className="column">
-            <button type="submit" className="button is-primary">
-              <span className="icon">
-                <i class="fas fa-plus-circle"></i>
-              </span>
-            </button>
-          </div>
+        <div className="column">
+          <button type="submit" className="button is-primary">
+            <span className="icon">
+              <i className="fas fa-plus-circle"></i>
+            </span>
+          </button>
         </div>
       </div>
     </form>

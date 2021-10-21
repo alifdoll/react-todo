@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Todo = ({ text, completed, removeTodo }) => {
+const Todo = ({ text, completed, removeTodo, editTodo }) => {
   console.log(`ini adalah ${text}`);
   const [isEditing, setIsEditing] = useState(false);
   const [value, setValue] = useState(text);
@@ -14,6 +14,7 @@ const Todo = ({ text, completed, removeTodo }) => {
   const handleInputKeyDown = (e) => {
     const key = e.keyCode;
     if (key === 13) {
+      editTodo({ title: tempVal });
       setValue(tempVal);
       setIsEditing(false);
     } else if (key === 27) {
@@ -27,7 +28,11 @@ const Todo = ({ text, completed, removeTodo }) => {
   };
 
   const handleCheckButton = () => {
-    setCompletedState(!completedState);
+    setCompletedState((completedState) => {
+      const newState = !completedState;
+      editTodo({ completed: newState });
+      return newState;
+    });
   };
 
   return (
@@ -65,7 +70,7 @@ const Todo = ({ text, completed, removeTodo }) => {
                 onClick={handleCheckButton}
               >
                 <span className="icon">
-                  <i class="fas fa-plus-circle"></i>
+                  <i className="fas fa-plus-circle"></i>
                 </span>
               </button>
             </div>
@@ -73,7 +78,7 @@ const Todo = ({ text, completed, removeTodo }) => {
             <div className="block mx-2">
               <button className="button is-danger" onClick={removeTodo}>
                 <span className="icon">
-                  <i class="fas fa-times-circle"></i>
+                  <i className="fas fa-times-circle"></i>
                 </span>
               </button>
             </div>
